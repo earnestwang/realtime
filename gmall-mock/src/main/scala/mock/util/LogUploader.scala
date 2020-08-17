@@ -34,7 +34,7 @@ object LogUploader {
       // 11. 获取响应码.  (或者获取响应信息也行, 否则不会发送请求到服务器)
       // 200 ok  404 not found  500 服务器
       val code: Int = conn.getResponseCode
-      println(code)
+      //println(code)
     } catch {
       case e: Exception => e.printStackTrace()
     }

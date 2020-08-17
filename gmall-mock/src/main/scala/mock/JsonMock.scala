@@ -124,7 +124,7 @@ object JsonMock {
       while (!quitOpts.getRandomOption()) {
         // 生成一条事件日志
         val oneEventLog: String = initOneEventLog(oneStartupLog)
-        println(oneEventLog)
+        //println(oneEventLog)
         // 发送事件日志
         LogUploader.sendLog(oneEventLog)
         Thread.sleep(100)

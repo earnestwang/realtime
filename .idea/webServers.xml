@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="5d3f1eb3-07e4-43e8-9925-615cffd8cc1d" name="hadoop102">
+        <fileTransfer accessType="SFTP" host="hadoop102" port="22" sshConfigId="9055c7b4-6c71-4f6e-ba42-acfb1f050975" sshConfig="root@hadoop102:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
