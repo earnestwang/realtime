@@ -12,7 +12,7 @@ case $1 in
 
     for host in hadoop102 hadoop103 hadoop104 ; do
         echo "在 $host 启动日志服务器"
-        ssh $host "nohup java -jar ${gmall_home}/gmall-logger-0.0.1-SNAPSHOT.jar 1>$gmall_home/a.log 2>&1  &"
+        ssh atguigu@$host "nohup java -jar ${gmall_home}/gmall-logger-0.0.1-SNAPSHOT.jar 1>/dev/null 2>&1  &"
     done
    ;;
 "stop")
