@@ -38,7 +38,6 @@ object CanalClient {
    */
   def handleRowDatas(rowDatas: util.List[CanalEntry.RowData], tableName: String, eventType: CanalEntry.EventType) = {
     if (tableName == "order_info" && eventType == EventType.INSERT && rowDatas != null && !rowDatas.isEmpty) {
-      println("handleRowDatas if ")
       for (rowData <- rowDatas.asScala) {
         val obj = new JSONObject()
         // 所有的列
@@ -62,7 +61,7 @@ object CanalClient {
     connector.connect();
     // 2. 拉取数据
     // 2.1 先订阅数据 订阅那些数据那些表
-    connector.subscribe("gmall.*")
+    connector.subscribe("mygmall.*")
 
     while (true) {
       val msg = connector.get(100) // 最多拉取100条sql导致的变化的数据
@@ -72,11 +71,9 @@ object CanalClient {
       val entries: util.List[CanalEntry.Entry] = msg.getEntries
       if (entries != null && entries.size() > 0) {
         // 3.1 解析entry
-        println("main if 1")
 
         for (entry <- entries.asScala) {
           if (entry != null && entry.hasEntryType && entry.getEntryType == EntryType.ROWDATA) {
-            println("main if 2")
 
             val storeValue: ByteString = entry.getStoreValue
             val rowChange: RowChange = RowChange.parseFrom(storeValue)

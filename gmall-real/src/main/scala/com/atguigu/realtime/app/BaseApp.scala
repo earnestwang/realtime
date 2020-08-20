@@ -6,7 +6,7 @@ import org.apache.spark.streaming.{Seconds, StreamingContext}
 trait BaseApp {
 
   def main(args: Array[String]): Unit = {
-    val conf: SparkConf = new SparkConf().setMaster("local[2]").setAppName("DauApp")
+    val conf: SparkConf = new SparkConf().setMaster("local[2]").setAppName("OrderInfoApp")
     val ssc = new StreamingContext(conf, Seconds(3))
     doSomething(ssc)
     // 启动流

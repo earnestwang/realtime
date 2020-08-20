@@ -25,4 +25,8 @@ case class OrderInfo(id: String,
   //2020-08-19 17:09:45
   create_date = create_time.substring(0, 10)
   create_hour = create_time.substring(11,13)
+
+  // 对用户的名字和电话号码做脱敏处理, 186****1111
+  consignee = consignee.substring(0, 1) + "**"
+  consignee_tel.replaceAll("(\\d{3})\\d{4}(\\d{3})","$1****$2")
 }

@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="gmall-mock" />
         <module name="gmall-canal" />
         <module name="gmall-logger" />
+        <module name="dw-chart" />
         <module name="gmall-real" />
         <module name="gmall-publisher" />
-        <module name="gmall-mock" />
         <module name="gmall-common" />
       </profile>
     </annotationProcessing>
