@@ -26,17 +26,17 @@ public class LoggerController {
         sendToKafka(log);
 
 
-
         return "ok";
     }
 
     @Autowired
-    KafkaTemplate<String,String> kafka;
+    KafkaTemplate<String, String> kafka;
+
     private void sendToKafka(String log) {
         // 不同的日志写入到不同的topic
         if (log.contains("startup")) {
             System.out.println("come here1");
-            kafka.send(Constant.STARTUP_LOG_TOPIC,log);
+            kafka.send(Constant.STARTUP_LOG_TOPIC, log);
         } else {
             System.out.println("come here1");
             kafka.send(Constant.EVENT_LOG_TOPIC, log);
@@ -44,18 +44,20 @@ public class LoggerController {
     }
 
     /**
-     *  把日志信息写入到磁盘
+     * 把日志信息写入到磁盘
+     *
      * @param log
      */
 
     private Logger logger = LoggerFactory.getLogger(LoggerController.class);
+
     private void saveToDisk(String log) {
         logger.info(log);
     }
 
     private String addTs(String log) {
         JSONObject obj = JSON.parseObject(log);
-        obj.put("ts",System.currentTimeMillis());
+        obj.put("ts", System.currentTimeMillis());
         return obj.toJSONString();
     }
 
